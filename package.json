@@ -1,0 +1,37 @@
+{
+  "name": "i-ching-app",
+  "version": "1.0.0",
+  "description": "pending",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexwuwei/i-ching-app.git"
+  },
+  "author": "Hugo A Guerra <guerrahugoa@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alexwuwei/i-ching-app/issues"
+  },
+  "homepage": "https://github.com/alexwuwei/i-ching-app#readme",
+  "dependencies": {
+    "del": "^2.2.0",
+    "express": "^4.13.4",
+    "mongoose": "^4.4.16"
+  },
+  "devDependencies": {
+    "angular": "^1.5.5",
+    "angular-mocks": "^1.5.5",
+    "angular-route": "^1.5.5",
+    "body-parser": "^1.15.1",
+    "css-loader": "^0.23.1",
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^2.0.0",
+    "gulp-webpack": "^1.5.0",
+    "style-loader": "^0.13.1",
+    "webpack-stream": "^3.2.0"
+  }
+}
