@@ -2,9 +2,9 @@
 
 const angular = require('angular');
 
-require('./components/router/route-controller');
-require('./components/projects/landing-controller');
-require('./components/projects/results-controller');
-require('./components/nav/nav-controller');
+require('./router/route-controller');
+require('./landing/landing-controller');
+require('./results/results-controller');
+// require('./js/nav/nav-controller');
 
 require('./entry-module');

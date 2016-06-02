@@ -44,7 +44,7 @@ gulp.task('copy-css', () => {
 });
 
 gulp.task('webpack', () => {
-  return gulp.src(__dirname + '/dev/entry.js')
+  return gulp.src(__dirname + '/app/js/entry.js')
   .pipe(webpack({
     output: {
       filename: 'bundle.js'
@@ -61,17 +61,18 @@ gulp.task('sass', function() {
 
 gulp.task('watch', () =>{
   gulp.watch(scssPaths, ['sass']);
+  gulp.watch(cssPaths, ['copy-css']);
   gulp.watch(jsPaths, ['webpack']);
   gulp.watch(htmlPaths, ['copy-html']);
   gulp.watch(mediaPaths, ['copy-media']);
 });
 
-gulp.task('bundle:test', () => {
-  return gulp.src(__dirname + '/tests/karma-testing.js')
-  .pipe(webpack({output: {filename: 'test_bundle.js'},
-  watch: true
-}))
-  .pipe(gulp.dest('./tests'));
-});
+// gulp.task('bundle:test', () => {
+//   return gulp.src(__dirname + '/tests/karma-testing.js')
+//   .pipe(webpack({output: {filename: 'test_bundle.js'},
+//   watch: true
+// }))
+//   .pipe(gulp.dest('./tests'));
+// });
 
 gulp.task('default', ['del-public', 'webpack', 'copy-html', 'copy-css', 'copy-media', 'sass', 'copy-templates', 'watch']);
