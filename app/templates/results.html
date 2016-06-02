@@ -1,0 +1,9 @@
+<section ng-controller="ResultsController as resctrl">
+  <span>You drew...</span>
+  <h2>{{resctrl.result.title}}</h2>
+  <img src="{{resctrl.result.image}}" alt="{{resctrl.result.title}}" />
+  <p>
+    {{resctrl.result.description}}
+  </p>
+  <button type="button" name="button" ng-click="resctrl.backToMain()">Draw again!</button>
+</section>
