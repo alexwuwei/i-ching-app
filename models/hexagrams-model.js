@@ -8,5 +8,5 @@ const hexagramSchema = mongoose.Schema({
   image: String
 });
 
-var Message = mongoose.model('Message', messageSchema);
-module.exports = Message;
+var Hexagram = mongoose.model('Hexagram', hexagramSchema);
+module.exports = Hexagram;
