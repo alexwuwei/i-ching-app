@@ -65,6 +65,7 @@ gulp.task('watch', () =>{
   gulp.watch(jsPaths, ['webpack']);
   gulp.watch(htmlPaths, ['copy-html']);
   gulp.watch(mediaPaths, ['copy-media']);
+  gulp.watch(templatePaths, ['copy-templates']);
 });
 
 // gulp.task('bundle:test', () => {
@@ -75,4 +76,4 @@ gulp.task('watch', () =>{
 //   .pipe(gulp.dest('./tests'));
 // });
 
-gulp.task('default', ['del-public', 'webpack', 'copy-html', 'copy-css', 'copy-media', 'sass', 'copy-templates', 'watch']);
+gulp.task('default', ['del-public', 'webpack', 'copy-html', 'copy-css', 'copy-templates', 'copy-media', 'sass', 'watch']);

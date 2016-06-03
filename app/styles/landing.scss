@@ -1,5 +1,17 @@
-body {
-  /*background-image: url('/../media/background.png');*/
-  background-size: 100%;
-  opacity: 0.8;
+//////////////////////
+// variables
+/////////////////////
+$gutter: 2%;
+
+//////////////////////
+// mixins
+/////////////////////
+
+.container {
+  display: flex;
+  flex-direction: column-reverse;
+  @media all and (min-width: 500px) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }

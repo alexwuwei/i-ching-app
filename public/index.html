@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="App">
+<html >
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,8 +9,12 @@
     <link rel="stylesheet" href="/css/results.css">
     <title>I Ching Readings</title>
   </head>
-  <body>
+  <body ng-app="App" ng-view>
     <main class="container">
+      <!-- <header>
+        <h1>I ching</h1>
+        <h4>Connect with your subconscious</h4>
+      </header> -->
       <landing-render></landing-render>
       <results-render></results-render>
       <cast-render></cast-render>
