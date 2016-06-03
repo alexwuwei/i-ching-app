@@ -50,10 +50,9 @@
 
 	__webpack_require__(3);
 	__webpack_require__(6);
-	__webpack_require__(7);
+	// require('./results/results-controller');
 	// require('./js/nav/nav-controller');
-
-	__webpack_require__(8);
+	__webpack_require__(7);
 
 
 /***/ },
@@ -32000,26 +31999,47 @@
 
 /***/ },
 /* 6 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
+
+	const angular = __webpack_require__(1);
 
 	angular.module('LandingModule', [])
-	.controller('LandingController', [LandingController])
+	.controller('LandingController', ['$http', LandingController])
 	.directive('landingRender', function() {
 	  return {
 	    restrict: 'E',
-	    templateUrl: '/../templates/landing-view.html'
+	    // templateUrl: '/../templates/landing-view.html'
+	    templateUrl: './landing-view.html'
 	  };
 	});
+
+	function LandingController ($http) {
+	  this.hexagramId;
+	  this.hexagramInfo
+	  this.castHexagram = function() {
+	    var randomHex = Math.floor(Math.random() * 64) + 1;
+	    this.hexagramId = randomHex;
+	  }
+	  this.getHexagram = function() {
+	    $http.get('http://localhost:3000/hexagrams:', this.hexagramId)
+	    .then((res) => {
+	      console.log(res);
+	      this.hexagramInfo = res.data;
+	    }, function(err) {
+	      console.log('error getting hexagram info');
+	    })
+	  }
+	}
+
+	// const app = angular.module('LandingModule', []);
+	//
+	// app.controller('LandingController', ['$http', function($http) {
+	//
+	// }])
 
 
 /***/ },
 /* 7 */
-/***/ function(module, exports) {
-
-	
-
-/***/ },
-/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -32027,7 +32047,7 @@
 	const angular = __webpack_require__(1);
 
 	(function() {
-	  angular.module('App', ['RouteModule', 'LandingModule', 'ResultsModule']);
+	  angular.module('App', ['RouteModule', 'LandingModule'])
 	})();
 
 
