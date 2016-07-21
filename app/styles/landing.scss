@@ -3,6 +3,19 @@
 /////////////////////
 $gutter: 2%;
 
+$primary-color: #B67E18;
+$secondary-color: #155CB2;
+$tertiary-color: #0072FF;
+
+$type-base: 1em;
+$type-plus-one: 2.618em;
+$type-plus-two: 4.236em;
+$type-minus-one: 0.618em;
+
+p {
+  color: $secondary-color;
+}
+
 //////////////////////
 // mixins
 /////////////////////
@@ -10,8 +23,36 @@ $gutter: 2%;
 .container {
   display: flex;
   flex-direction: column-reverse;
+  width: 100%;
+  h2 {
+    font-size: 2.618em;
+    color: $primary-color;
+  }
+  p {
+    font-size: 1em;
+  }
   @media all and (min-width: 500px) {
-    flex-direction: row;
+    flex-direction: row-reverse;
     justify-content: space-between;
+  }
+}
+
+.cast-container {
+  display: flex;
+  flex-direction: column;
+  border: 1px dotted red;
+  padding: 1%;
+  @media all and (min-width: 500px) {
+    width: 45%;
+  }
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  border: 1px dotted red;
+  padding: 1%;
+  @media all and (min-width: 500px) {
+    width: 45%;
   }
 }
