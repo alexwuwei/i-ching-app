@@ -32015,20 +32015,20 @@
 
 	function LandingController ($http) {
 	  this.hexagramId;
-	  this.hexagramInfo
+	  this.hexagramInfo;
 	  this.castHexagram = function() {
-	    var randomHex = Math.floor(Math.random() * 64) + 1;
+	    let randomHex = Math.floor(Math.random() * 64) + 1;
 	    this.hexagramId = randomHex;
-	  }
+	  };
 	  this.getHexagram = function() {
-	    $http.get('http://localhost:3000/hexagrams:', this.hexagramId)
+	    $http.get('http://localhost:3000/hexagrams/', this.hexagramId)
 	    .then((res) => {
 	      console.log(res);
 	      this.hexagramInfo = res.data;
 	    }, function(err) {
 	      console.log('error getting hexagram info');
-	    })
-	  }
+	    });
+	  };
 	}
 
 	// const app = angular.module('LandingModule', []);

@@ -56,6 +56,22 @@ app.get('/api/hexagrams', (req, res) => {
   });
 });
 
+app.get('/api/hexagrams/:id', (req, res) => {
+  console.log('get route hit');
+  Hexagram.findOne({number: req.params.id},(err, hex) => {
+    if (err) throw err;
+    res.status(200).json(hex);
+  });
+});
+
+app.post('/api/hexagrams', (req, res) => {
+  console.log('post route hit');
+  var newHexagram = new Hexagram(req.body);
+  newHexagram.save((err, hex) => {
+    res.json(hex);
+  });
+});
+
 app.use('/', express.static(path.join(__dirname, 'public')));
 
 mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/db');

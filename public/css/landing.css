@@ -1,7 +1,34 @@
+p {
+  color: #155CB2; }
+
 .container {
   display: flex;
-  flex-direction: column-reverse; }
+  flex-direction: column-reverse;
+  width: 100%; }
+  .container h2 {
+    font-size: 2.618em;
+    color: #B67E18; }
+  .container p {
+    font-size: 1em; }
   @media all and (min-width: 500px) {
     .container {
-      flex-direction: row;
+      flex-direction: row-reverse;
       justify-content: space-between; } }
+
+.cast-container {
+  display: flex;
+  flex-direction: column;
+  border: 1px dotted red;
+  padding: 1%; }
+  @media all and (min-width: 500px) {
+    .cast-container {
+      width: 45%; } }
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  border: 1px dotted red;
+  padding: 1%; }
+  @media all and (min-width: 500px) {
+    .info-container {
+      width: 45%; } }
