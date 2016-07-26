@@ -1,3 +1,5 @@
+<header-render></header-render>
+
 <section class="container" ng-init ng-controller="LandingController as landcontrol">
   <!-- <div class="four column">
     I ching stuff
@@ -6,11 +8,11 @@
     some other stuff
   </div> -->
   <div class="cast-container">
-    <h2>Try it out!</h1>
+    <h2>Try it out!</h2>
       <p>
         In the I Ching, it's all about hexagrams (64 in total). Each hexagram in the I Ching represents a specific set of wisdom (think of cards in a Tarot deck). Press the button to "flip a coin" six times, which will return a random hexagram from the I Ching. Read and ponder, as you apply it to your question.
       </p>
-      <button type="submit" name="hex-button" ng-click="">Press here</button>
+      <button type="submit" name="hex-button" ng-click="landcontrol.castHexagram()">Press here</button>
   </div>
   <div class="info-container">
     <h2>what is it?</h2>
@@ -21,7 +23,7 @@
       The Book of Changes is the most popular spiritual resource and oracle in Asia. It is also growing in popularity in Europe and the Americas, due perhaps to its ability to yield deep insight to those who ponder it carefully.
     </p>
   </div>
-  <div class="media-container">
+  <!-- <div class="media-container">
     <h2>what is it?</h2>
     <p>
       The I Ching (or Book of Changes), is one of the Five Classics, the fundamental books of Confucianism. It is over 3000 years old, making it one of the oldest surviving books in the world and one of the oldest forms of divination.
@@ -29,5 +31,5 @@
     <p>
       The Book of Changes is the most popular spiritual resource and oracle in Asia. It is also growing in popularity in Europe and the Americas, due perhaps to its ability to yield deep insight to those who ponder it carefully.
     </p>
-  </div>
+  </div> -->
 </section>

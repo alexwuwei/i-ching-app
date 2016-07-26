@@ -50,6 +50,7 @@
 
 	__webpack_require__(3);
 	__webpack_require__(6);
+	__webpack_require__(8);
 	// require('./results/results-controller');
 	// require('./js/nav/nav-controller');
 	__webpack_require__(7);
@@ -32003,7 +32004,7 @@
 
 	const angular = __webpack_require__(1);
 
-	angular.module('LandingModule', [])
+	angular.module('LandingModule', ['HeaderModule'])
 	.controller('LandingController', ['$http', LandingController])
 	.directive('landingRender', function() {
 	  return {
@@ -32019,9 +32020,11 @@
 	  this.castHexagram = function() {
 	    let randomHex = Math.floor(Math.random() * 64) + 1;
 	    this.hexagramId = randomHex;
+	    console.log(this.hexagramId);
+	    this.getHexagram();
 	  };
 	  this.getHexagram = function() {
-	    $http.get('http://localhost:3000/hexagrams/', this.hexagramId)
+	    $http.get('http://localhost:3000/hexagrams/' + this.hexagramId)
 	    .then((res) => {
 	      console.log(res);
 	      this.hexagramInfo = res.data;
@@ -32047,8 +32050,53 @@
 	const angular = __webpack_require__(1);
 
 	(function() {
-	  angular.module('App', ['RouteModule', 'LandingModule'])
+	  angular.module('App', ['RouteModule', 'LandingModule', 'HeaderModule'])
 	})();
+
+
+/***/ },
+/* 8 */
+/***/ function(module, exports, __webpack_require__) {
+
+	const angular = __webpack_require__(1);
+
+	angular.module('HeaderModule', [])
+	.controller('HeaderController', ['$http', function() {
+	  
+	}])
+	.directive('headerRender', function() {
+	  return {
+	    restrict: 'E',
+	    // templateUrl: '/../templates/header-view.html'
+	    templateUrl: './header-view.html'
+	  };
+	});
+
+	// function HeaderController ($http) {
+	//   this.hexagramId;
+	//   this.hexagramInfo;
+	//   this.castHexagram = function() {
+	//     let randomHex = Math.floor(Math.random() * 64) + 1;
+	//     this.hexagramId = randomHex;
+	//     console.log(this.hexagramId);
+	//     this.getHexagram();
+	//   };
+	//   this.getHexagram = function() {
+	//     $http.get('http://localhost:3000/hexagrams/' + this.hexagramId)
+	//     .then((res) => {
+	//       console.log(res);
+	//       this.hexagramInfo = res.data;
+	//     }, function(err) {
+	//       console.log('error getting hexagram info');
+	//     });
+	//   };
+	// }
+	//
+	// // const app = angular.module('LandingModule', []);
+	// //
+	// // app.controller('LandingController', ['$http', function($http) {
+	// //
+	// // }])
 
 
 /***/ }
