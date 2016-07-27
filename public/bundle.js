@@ -32005,7 +32005,7 @@
 	const angular = __webpack_require__(1);
 
 	angular.module('LandingModule', ['HeaderModule'])
-	.controller('LandingController', ['$http', LandingController])
+	.controller('LandingController', ['$http', '$location', LandingController])
 	.directive('landingRender', function() {
 	  return {
 	    restrict: 'E',

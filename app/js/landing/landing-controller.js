@@ -1,7 +1,7 @@
 const angular = require('angular');
 
 angular.module('LandingModule', ['HeaderModule'])
-.controller('LandingController', ['$http', LandingController])
+.controller('LandingController', ['$http', '$location', LandingController])
 .directive('landingRender', function() {
   return {
     restrict: 'E',
