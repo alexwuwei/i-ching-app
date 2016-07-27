@@ -10,15 +10,23 @@ angular.module('LandingModule', ['HeaderModule'])
   };
 });
 
-function LandingController ($http) {
+function LandingController ($http, $location) {
   this.hexagramId;
+
   this.hexagramInfo;
+
+  this.changeView = function(view){
+    $location.path(view); // path not hash
+  };
+
   this.castHexagram = function() {
     let randomHex = Math.floor(Math.random() * 64) + 1;
     this.hexagramId = randomHex;
     console.log(this.hexagramId);
     this.getHexagram();
+    this.changeView('results');
   };
+
   this.getHexagram = function() {
     $http.get('http://localhost:3000/hexagrams/' + this.hexagramId)
     .then((res) => {

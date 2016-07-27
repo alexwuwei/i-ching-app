@@ -29,7 +29,7 @@ gulp.task('copy-templates', () => {
   gulp.src(templatePaths)
   .pipe(rename({dirname: '/templates'}))
   .pipe(gulp.dest(output));
-});
+}); 
 
 gulp.task('copy-media', () => {
   gulp.src(mediaPaths)

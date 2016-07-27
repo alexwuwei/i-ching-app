@@ -50,10 +50,10 @@
 
 	__webpack_require__(3);
 	__webpack_require__(6);
-	__webpack_require__(8);
-	// require('./results/results-controller');
-	// require('./js/nav/nav-controller');
 	__webpack_require__(7);
+	__webpack_require__(9);
+	// require('./js/nav/nav-controller');
+	__webpack_require__(8);
 
 
 /***/ },
@@ -32014,15 +32014,23 @@
 	  };
 	});
 
-	function LandingController ($http) {
+	function LandingController ($http, $location) {
 	  this.hexagramId;
+
 	  this.hexagramInfo;
+
+	  this.changeView = function(view){
+	    $location.path(view); // path not hash
+	  };
+
 	  this.castHexagram = function() {
 	    let randomHex = Math.floor(Math.random() * 64) + 1;
 	    this.hexagramId = randomHex;
 	    console.log(this.hexagramId);
 	    this.getHexagram();
+	    this.changeView('results');
 	  };
+
 	  this.getHexagram = function() {
 	    $http.get('http://localhost:3000/hexagrams/' + this.hexagramId)
 	    .then((res) => {
@@ -32043,19 +32051,6 @@
 
 /***/ },
 /* 7 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	const angular = __webpack_require__(1);
-
-	(function() {
-	  angular.module('App', ['RouteModule', 'LandingModule', 'HeaderModule'])
-	})();
-
-
-/***/ },
-/* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
 	const angular = __webpack_require__(1);
@@ -32081,6 +32076,72 @@
 	//     console.log(this.hexagramId);
 	//     this.getHexagram();
 	//   };
+	//   this.getHexagram = function() {
+	//     $http.get('http://localhost:3000/hexagrams/' + this.hexagramId)
+	//     .then((res) => {
+	//       console.log(res);
+	//       this.hexagramInfo = res.data;
+	//     }, function(err) {
+	//       console.log('error getting hexagram info');
+	//     });
+	//   };
+	// }
+	//
+	// // const app = angular.module('LandingModule', []);
+	// //
+	// // app.controller('LandingController', ['$http', function($http) {
+	// //
+	// // }])
+
+
+/***/ },
+/* 8 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	const angular = __webpack_require__(1);
+
+	(function() {
+	  angular.module('App', ['RouteModule', 'LandingModule', 'HeaderModule', 'ResultsModule'])
+	})();
+
+
+/***/ },
+/* 9 */
+/***/ function(module, exports, __webpack_require__) {
+
+	const angular = __webpack_require__(1);
+
+	angular.module('ResultsModule', ['HeaderModule'])
+	.controller('ResultsController', ['$http', function() {
+	  
+	}])
+	.directive('resultsRender', function() {
+	  return {
+	    restrict: 'E',
+	    // templateUrl: '/../templates/results-view.html'
+	    templateUrl: './results-view.html'
+	  };
+	});
+
+	// function ResultsController ($http, $location) {
+	//   this.hexagramId;
+	//
+	//   this.hexagramInfo;
+	//
+	//   this.changeView = function(view){
+	//     $location.path(view); // path not hash
+	//   };
+	//
+	//   this.castHexagram = function() {
+	//     let randomHex = Math.floor(Math.random() * 64) + 1;
+	//     this.hexagramId = randomHex;
+	//     console.log(this.hexagramId);
+	//     this.getHexagram();
+	//     this.changeView('results');
+	//   };
+	//
 	//   this.getHexagram = function() {
 	//     $http.get('http://localhost:3000/hexagrams/' + this.hexagramId)
 	//     .then((res) => {
