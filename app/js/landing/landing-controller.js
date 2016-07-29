@@ -13,10 +13,14 @@ angular.module('LandingModule', ['HeaderModule'])
 function LandingController ($http, $location) {
   this.hexagramId;
   this.transitionFlag = true;
+  this.spinnerFlag = true;
 
   this.hexagramInfo;
 
   this.changeView = function(view){
+    setTimeout(() => {
+      this.spinnerFlag = !this.spinnerFlag;
+    }, 3000);
     $location.path(view); // path not hash
   };
 
