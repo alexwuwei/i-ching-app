@@ -51,9 +51,9 @@
 	__webpack_require__(3);
 	__webpack_require__(6);
 	__webpack_require__(7);
-	__webpack_require__(9);
-	// require('./js/nav/nav-controller');
 	__webpack_require__(8);
+	// require('./js/nav/nav-controller');
+	__webpack_require__(9);
 
 
 /***/ },
@@ -32016,10 +32016,15 @@
 
 	function LandingController ($http, $location) {
 	  this.hexagramId;
+	  this.transitionFlag = true;
+	  this.spinnerFlag = true;
 
 	  this.hexagramInfo;
 
 	  this.changeView = function(view){
+	    setTimeout(() => {
+	      this.spinnerFlag = !this.spinnerFlag;
+	    }, 3000);
 	    $location.path(view); // path not hash
 	  };
 
@@ -32028,6 +32033,7 @@
 	    this.hexagramId = randomHex;
 	    console.log(this.hexagramId);
 	    this.getHexagram();
+	    this.transitionFlag = !this.transitionFlag;
 	    this.changeView('results');
 	  };
 
@@ -32098,19 +32104,6 @@
 /* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
-	'use strict';
-
-	const angular = __webpack_require__(1);
-
-	(function() {
-	  angular.module('App', ['RouteModule', 'LandingModule', 'HeaderModule', 'ResultsModule'])
-	})();
-
-
-/***/ },
-/* 9 */
-/***/ function(module, exports, __webpack_require__) {
-
 	const angular = __webpack_require__(1);
 
 	angular.module('ResultsModule', ['HeaderModule'])
@@ -32158,6 +32151,19 @@
 	// // app.controller('LandingController', ['$http', function($http) {
 	// //
 	// // }])
+
+
+/***/ },
+/* 9 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	const angular = __webpack_require__(1);
+
+	(function() {
+	  angular.module('App', ['RouteModule', 'LandingModule', 'HeaderModule', 'ResultsModule'])
+	})();
 
 
 /***/ }
