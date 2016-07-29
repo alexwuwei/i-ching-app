@@ -12,6 +12,7 @@ angular.module('LandingModule', ['HeaderModule'])
 
 function LandingController ($http, $location) {
   this.hexagramId;
+  this.transitionFlag = true;
 
   this.hexagramInfo;
 
@@ -24,6 +25,7 @@ function LandingController ($http, $location) {
     this.hexagramId = randomHex;
     console.log(this.hexagramId);
     this.getHexagram();
+    this.transitionFlag = !this.transitionFlag;
     this.changeView('results');
   };
 
